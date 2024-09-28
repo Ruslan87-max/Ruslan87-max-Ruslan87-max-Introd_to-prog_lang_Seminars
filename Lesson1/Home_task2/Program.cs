@@ -12,9 +12,9 @@
 // ● 5
 
 // На входе:
-// ● a: 1
+// ● a: 2
 // ● b: 9
-// ● c: 7
+// ● c: 12
 
 // На выходе:
 // ● 7
@@ -24,8 +24,19 @@ public class Answer
 {
     static int FindMedian(int a, int b, int c)
     {
-        int average = (a + b +c) / 3;
-        return average;
+        if ((a >= b && a <= c) || (a >= c && a <= b))
+        {
+            return a;
+        }
+        else if ((b >= a && b <= c) || (b >= c && b <= a))
+        {
+            return b;
+        }
+        else
+        {
+            return c;
+        }
+
     }
     static public void Main(string[] args)
     {
@@ -38,9 +49,9 @@ public class Answer
         }
         else
         {
-            a = 5;
-            b = 3;
-            c = 10;
+            a = 2;
+            b = 1;
+            c = 2;
         }
         int result = FindMedian(a, b, c);
         System.Console.WriteLine($"{result}");
