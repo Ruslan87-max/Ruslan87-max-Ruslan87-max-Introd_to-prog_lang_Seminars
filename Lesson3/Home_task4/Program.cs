@@ -10,7 +10,20 @@ class Program
 {
     static int[] RemoveNegatives(int[] numbers)
     {
-        int[] newArr = Array.FindAll(numbers, x => x >= 0);
+        /* int[] newArr = Array.FindAll(numbers, x => x >= 0);
+        return newArr; */
+        int[] newArr = new int[numbers.Length];
+        int i = 0, newSize = numbers.Length;
+
+        foreach (int e in numbers)
+        {
+            if (e >= 0)
+            {
+                newArr[i] = e;
+                Array.Resize(ref newArr, newSize--);
+                i++;
+            }
+        }
         return newArr;
     }
     static void Main(string[] args)
